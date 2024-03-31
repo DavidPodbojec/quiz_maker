@@ -1,24 +1,33 @@
+
 .side-navbar {
-  width: 200px;
-  height: 100%;
-  background-color: #f4f4f4;
-  padding: 20px;
-}
-
-.side-navbar h2 {
-  margin-bottom: 10px;
-}
-
-.side-navbar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.side-navbar li {
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-
-.side-navbar li:hover {
-  color: blue;
-}
+    background-color: #333 !important; /* Darker background color */
+    padding: 20px; /* Add padding for better spacing */
+  }
+  
+  /* Other styles remain the same */
+  
+  .list-group {
+    margin-bottom: 20px; /* Add margin at the bottom of the list group */
+  }
+  
+  .input-group {
+    margin-top: auto; /* Align the input group to the bottom */
+  }
+  
+  .btn-primary {
+    margin-top: 10px; /* Add some top margin to the button for spacing */
+  }
+  
+  
+  .list-group-item {
+    border-radius: 0; /* Remove border radius from list items */
+  }
+  
+  .theme-deleted {
+    background-color: #fff; /* Change background color as needed */
+  }
+  
+  .theme-deleted h1 {
+    font-size: 2.5rem; /* Adjust font size as needed */
+  }
+  
