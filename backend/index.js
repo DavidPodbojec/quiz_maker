@@ -1,16 +1,16 @@
 const express = require('express');
-const connection = require('./database'); // Import the database connection
-const themeRouter = require('./routes/themeRouter');
+const cors = require('cors'); // Import cors module
+const connection = require('./database'); 
+const themeRouter = require('./router');
 
 const app = express();
 
 app.use(express.json());
+app.use(cors()); // Use cors middleware to allow cross-origin requests
 
-// No need to connect to MongoDB here, as it's already done in database.js
+app.use('/api', themeRouter);
 
-app.use('/api/themes', themeRouter);
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
