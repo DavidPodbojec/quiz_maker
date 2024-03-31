@@ -1,0 +1,1 @@
+Simple quiz maker with backend that does CRUD operations on the mongodb database. You will need to have a database quiz_maker and two collections - themes, questions. To connect to db you need to make your own .env file which contains mongodb connection string under MONGODB_URI name and a port on which the backend will be running. For me it was 5000.
