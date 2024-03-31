@@ -31,23 +31,6 @@ exports.getAllQuestionsForTheme = async (req, res) => {
   }
 };
 
-exports.updateQuestion = async (req, res) => {
-  try {
-    const { questionId } = req.params;
-    const { text } = req.body;
-
-    const updatedQuestion = await Question.findByIdAndUpdate(questionId, { text }, { new: true });
-
-    if (!updatedQuestion) {
-      return res.status(404).json({ error: 'Question not found' });
-    }
-
-    res.json({ message: 'Question updated successfully', question: updatedQuestion });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to update question', details: error.message });
-  }
-};
-
 exports.deleteQuestion = async (req, res) => {
   try {
     const { questionId } = req.params;
@@ -61,5 +44,14 @@ exports.deleteQuestion = async (req, res) => {
     res.json({ message: 'Question deleted successfully', question: deletedQuestion });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete question', details: error.message });
+  }
+};
+
+exports.getAllQuestions = async () => {
+  try {
+    const questions = await Question.find();
+    return questions;
+  } catch (error) {
+    throw new Error('Failed to retrieve questions: ' + error.message);
   }
 };

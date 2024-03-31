@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -48,7 +47,7 @@ const Navbar = ({ handleThemeClick }) => {
   return (
     <div className="bg-dark text-light p-4 position-fixed start-0 top-0 bottom-0" style={{ width: '250px', overflowY: 'auto' }}>
       <h2 className="text-center mb-3">Themes</h2>
-      <div className="input-group mb-3" style={{ top: '0', position: 'sticky', zIndex: '1', backgroundColor: '#343a40', paddingTop: '10px' }}>
+      <div className="input-group mb-3">
         <input
           type="text"
           className="form-control"

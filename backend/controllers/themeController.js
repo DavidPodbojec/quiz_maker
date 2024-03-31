@@ -22,25 +22,6 @@ exports.createTheme = async (req, res) => {
 };
 
 
-exports.updateTheme = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const { name } = req.body;
-  
-      
-      const updatedTheme = await Theme.findByIdAndUpdate(id, { name }, { new: true });
-  
-      if (!updatedTheme) {
-        return res.status(404).json({ error: 'Theme not found' });
-      }
-  
-      res.json({ message: 'Theme updated successfully', theme: updatedTheme });
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to update theme', details: error.message });
-    }
-  };
-  
-
   exports.deleteTheme = async (req, res) => {
     try {
         const { id } = req.params;
