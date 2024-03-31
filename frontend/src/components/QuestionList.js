@@ -4,6 +4,7 @@ import QuizPopup from './QuizPopup';
 
 const QuestionList = ({ selectedTheme }) => {
   const [questions, setQuestions] = useState([]);
+  const [quizQuestions, setQuizQuestions] = useState([]);
   const [newQuestionText, setNewQuestionText] = useState('');
   const [showQuizPopup, setShowQuizPopup] = useState(false);
 
@@ -56,7 +57,7 @@ const QuestionList = ({ selectedTheme }) => {
       const response = await axios.get('http://localhost:5000/api/quiz');
       const quizQuestions = response.data.questions;
       setShowQuizPopup(true);
-      setQuestions(quizQuestions); // Set quiz questions in the state
+      setQuizQuestions(quizQuestions); // Set quiz questions in the state
     } catch (error) {
       console.error('Error fetching quiz questions:', error);
     }
@@ -87,7 +88,7 @@ const QuestionList = ({ selectedTheme }) => {
       <div>
         <button className="btn btn-primary mt-3" onClick={handleQuizTime}>Quiz Time</button>
       </div>
-      {showQuizPopup && <QuizPopup quizQuestions={questions} onClose={() => setShowQuizPopup(false)} />}
+      {showQuizPopup && <QuizPopup quizQuestions={quizQuestions} onClose={() => setShowQuizPopup(false)} />}
     </div>
   );
 };
