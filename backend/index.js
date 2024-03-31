@@ -1,12 +1,16 @@
-const express = require("express")
+const express = require('express');
+const connection = require('./database'); // Import the database connection
+const themeRouter = require('./routes/themeRouter');
 
-const app = express()
+const app = express();
 
-app.get("/", (req, res) => {
-	res.send({"name": "bro"})
-})
+app.use(express.json());
 
-app.listen(3000, () => {
-	console.log("3000")
-})
+// No need to connect to MongoDB here, as it's already done in database.js
 
+app.use('/api/themes', themeRouter);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
